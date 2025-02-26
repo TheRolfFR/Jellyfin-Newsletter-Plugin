@@ -182,3 +182,17 @@ See 'issues' tab in GitHub with the lable 'bug'
 
 # Contribute
 If you would like to collaborate/contribute, feel free! Make all PR's to the 'development' branch and please note clearly what was added/fixed, thanks!
+
+## Build plugin
+
+In order to build the plugin, you must get yourself Docker and just run the shell script [BuildScripts/build.sh](./BuildScripts/build.sh):
+```
+sh BuildScripts/build.sh 8
+```
+
+For production, you have to add prod:
+```
+sh BuildScripts/build.sh 8 prod
+```
+
+Get your zip from ``Jellyfin.Plugin.Newsletters/newsletters`` folder and release it on GitHub

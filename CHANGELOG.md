@@ -1,3 +1,6 @@
+# 0.6.5.0
+- Added option to disable SMTP SSL to use with self-hosted SMTP servers
+
 # 0.6.4.0
 - Minor bug fix
 

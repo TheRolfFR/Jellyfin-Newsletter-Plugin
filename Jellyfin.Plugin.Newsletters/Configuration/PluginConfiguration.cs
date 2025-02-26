@@ -24,6 +24,7 @@ public class PluginConfiguration : BasePluginConfiguration
         SMTPPort = 587;
         SMTPUser = string.Empty;
         SMTPPass = string.Empty;
+        SMTPSsl = true;
 
         // default Email Details
         ToAddr = string.Empty;
@@ -131,6 +132,11 @@ public class PluginConfiguration : BasePluginConfiguration
     /// Gets or sets a string setting.
     /// </summary>
     public string SMTPPass { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether email SSL is enabled..
+    /// </summary>
+    public bool SMTPSsl { get; set; }
 
     // -----------------------------------
 

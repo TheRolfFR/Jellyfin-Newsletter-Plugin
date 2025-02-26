@@ -2,7 +2,7 @@
 name: "Newsletters"
 guid: "60f478ab-2dd6-4ea0-af10-04d033f75979"
 imageUrl: "https://raw.githubusercontent.com/Cloud9Developer/Jellyfin-Newsletter-Plugin/master/logo.png"
-version: "0.6.4.2"
+version: "0.6.5.0"
 targetAbi: "10.9.0.0"
 framework: "net8.0"
 overview: "Send newsletters for recently added media"
@@ -13,6 +13,7 @@ artifacts:
   - "Jellyfin.Plugin.Newsletters.dll"
   - "SQLitePCL.pretty.dll"
 changelog: >
+  - Option to disable SMTP SSL
   - Major code refactoring.
   - Database updates for new available Tags.
   - Catch all for any missed tags in newsletter output.

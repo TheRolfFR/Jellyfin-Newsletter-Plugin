@@ -147,6 +147,12 @@
                                 <input id="SMTPPass" name="SMTPPassword" type="text" is="emby-input" />
                                 <div class="fieldDescription">Password that will be used to login to the SMTP server</div>
                             </div>
+                            <div class="inputContainer" id="SMTPSecureServer">
+                                <label class="emby-checkbox-label">
+                                    <input id="SMTPSsl" name="SMTPSsl" type="checkbox" is="emby-checkbox" />
+                                    <span>Enable SMTP SSL (useful for self-hosted SMTP servers)</span>
+                                </label>
+                            </div>
                             <button id="testButton" is="emby-button" type="button" class="raised block emby-button">
                                 <span>Test</span>
                             </button>
@@ -203,6 +209,7 @@
                     config.SMTPPort = document.querySelector('#SMTPPort').value;
                     config.SMTPUser = document.querySelector('#SMTPUser').value;
                     config.SMTPPass = document.querySelector('#SMTPPass').value;
+                    config.SMTPSsl = document.querySelector('#SMTPSsl').checked;
                     //emailDetails
                     config.ToAddr = document.querySelector('#ToAddr').value;
                     config.FromAddr = document.querySelector('#FromAddr').value;
@@ -236,6 +243,7 @@
                     document.querySelector('#SMTPPort').value = config.SMTPPort;
                     document.querySelector('#SMTPUser').value = config.SMTPUser;
                     document.querySelector('#SMTPPass').value = config.SMTPPass;
+                    document.querySelector('#SMTPSsl').checked = config.SMTPSsl;
                     //emailDetails
                     document.querySelector('#ToAddr').value = config.ToAddr;
                     document.querySelector('#FromAddr').value = config.FromAddr;

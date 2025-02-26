@@ -67,10 +67,16 @@ rc=$?
 # package Templates/ as well
 cd ${MY}/../${JELLYFIN_REPO}
 zipfile="./newsletters/newsletters_${VERSION}.zip"
+checksum=$(md5sum ${zipfile} | cut -d ' ' -f 1)
+echo "Previous checksum: $checksum"
 zip -r ${zipfile} ./Templates
+new_checksum=$(md5sum ${zipfile} | cut -d ' ' -f 1)
+echo "New checksum: $new_checksum"
+
 echo "----------"
+
 echo "Contents in ${zipfile}"
 unzip -l ${zipfile}
-sed -i "s/github.com\/Cloud9Developer\/Jellyfin-Newsletter-Plugin\/releases\/download\/newsletters/github.com\/Cloud9Developer\/Jellyfin-Newsletter-Plugin\/releases\/download\/v${VERSION}/g" manifest.json
-md5sum ${zipfile}
+sed -i "s/download\/newsletters/download\/v${VERSION}/g" manifest.json # Fix jprm sourceUrl with GH release URL
+sed -i "s/${checksum}/${new_checksum}/g" manifest.json # Replace previous checksum with new checksum
 exit $rc

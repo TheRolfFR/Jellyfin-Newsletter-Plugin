@@ -61,7 +61,7 @@ public class Smtp : ControllerBase
 
             smtp = new SmtpClient(config.SMTPServer, config.SMTPPort);
             smtp.Credentials = new NetworkCredential(config.SMTPUser, config.SMTPPass);
-            smtp.EnableSsl = true;
+            smtp.EnableSsl = config.SMTPSsl;
             smtp.Send(mail);
         }
         catch (Exception e)
@@ -86,7 +86,7 @@ public class Smtp : ControllerBase
                 MailMessage mail = new MailMessage();
                 string smtpAddress = config.SMTPServer;
                 int portNumber = config.SMTPPort;
-                bool enableSSL = true;
+                bool enableSSL = config.SMTPSsl;
                 string emailFromAddress = config.FromAddr;
                 string username = config.SMTPUser;
                 string password = config.SMTPPass;
