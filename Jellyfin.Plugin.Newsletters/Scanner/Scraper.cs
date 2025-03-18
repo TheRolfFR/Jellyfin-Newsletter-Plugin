@@ -193,7 +193,11 @@ public class Scraper
 
                 currFileObj.RunTime = (int)((float)episode.RunTimeTicks / 10000 / 60000);
                 currFileObj.OfficialRating = series.OfficialRating;
-                currFileObj.CommunityRating = series.CommunityRating;
+
+                if (series.CommunityRating is not null)
+                {
+                    currFileObj.CommunityRating = (int)series.CommunityRating;
+                }
 
                 if (!InDatabase("CurrRunData", currFileObj.Filename.Replace("'", string.Empty, StringComparison.Ordinal)) && 
                     !InDatabase("CurrNewsletterData", currFileObj.Filename.Replace("'", string.Empty, StringComparison.Ordinal)) && 
